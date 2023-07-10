@@ -1,6 +1,6 @@
 import mysql.connector
 
-diablo_db = mysql.connector.connect(user='root', password='****', host='127.0.0.1', database='diablo')
+diablo_db = mysql.connector.connect(user='root', password='************', host='127.0.0.1', database='diablo')
 if diablo_db.is_connected():
     print("Connection established,")
     print("Diablo database connected! \n")
