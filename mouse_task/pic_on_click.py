@@ -52,9 +52,9 @@ while True:
         print('escape pressed, closing the app')
         break
     cv2.setMouseCallback("test", capture_frame_on_click, frame)
-    asyncio.run(main())
-camera.release()
 
+camera.release()
+asyncio.run(main())
 
 # # mouse detection and movement
 # screen_width, screen_height = pyautogui.size()
