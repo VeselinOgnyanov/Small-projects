@@ -16,27 +16,23 @@ def capture_frame_on_click(event, x, y, flags, param):
         if current_pic not in images_dict.keys():
             images_dict[current_pic] = []
         images_dict[current_pic] = [x, y]
-        print(images_dict)
 
 
-# async def printing_dictionary(im_dict):
-#     last_count = 0
-#     while True:
-#         current_count = len(im_dict)
-#         if current_count > last_count:
-#             print(f"Updated dictionary" + "\n" + im_dict)
-#             last_count = current_count
-#         await asyncio.sleep(1)
+async def printing_dictionary(im_dict):
+    last_count = 0
+    current_count = len(im_dict)
+    while current_count > last_count:
+        print(f"Updated dictionary" + "\n" + str(im_dict.items()))
+        last_count = current_count
+    # await asyncio.sleep(1)
+
+
+async def main():
+    task = printing_dictionary(images_dict)
+    await task
 
 
 images_dict = {}
-
-
-# async def main():
-#     task = asyncio.create_task(printing_dictionary(images_dict))
-#     await task
-# asyncio.run(main())
-
 
 # taking pic from WebCam
 camera = cv2.VideoCapture(0)
@@ -56,8 +52,9 @@ while True:
         print('escape pressed, closing the app')
         break
     cv2.setMouseCallback("test", capture_frame_on_click, frame)
-
+    asyncio.run(main())
 camera.release()
+
 
 # # mouse detection and movement
 # screen_width, screen_height = pyautogui.size()
@@ -65,3 +62,4 @@ camera.release()
 # mouse_position_x, mouse_position_y = mouse_current_position
 # print(f"x: {mouse_position_x}px")
 # print(f"y: {mouse_position_y}px")
+
