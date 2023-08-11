@@ -16,21 +16,27 @@ def capture_frame_on_click(event, x, y, flags, param):
         if current_pic not in images_dict.keys():
             images_dict[current_pic] = []
         images_dict[current_pic] = [x, y]
+        print(images_dict)
 
 
-async def printing_dictionary(im_dict):
-    last_count = 0
-    while True:
-        current_count = len(im_dict)
-        if current_count > last_count:
-            print(f"Updated dictionary" + "\n" + im_dict)
-            last_count = current_count
-        await asyncio.sleep(1)
+# async def printing_dictionary(im_dict):
+#     last_count = 0
+#     while True:
+#         current_count = len(im_dict)
+#         if current_count > last_count:
+#             print(f"Updated dictionary" + "\n" + im_dict)
+#             last_count = current_count
+#         await asyncio.sleep(1)
 
 
 images_dict = {}
-printing_dict_object = printing_dictionary(images_dict)
-asyncio.run(printing_dict_object)
+
+
+# async def main():
+#     task = asyncio.create_task(printing_dictionary(images_dict))
+#     await task
+# asyncio.run(main())
+
 
 # taking pic from WebCam
 camera = cv2.VideoCapture(0)
