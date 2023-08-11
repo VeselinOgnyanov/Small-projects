@@ -1,0 +1,17 @@
+body {
+    background-color: bisque;
+}
+
+.mouse_coordinates{
+    width: 200px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+    justify-content: center;
+    align-items: center;
+}
+
+.mouse_coordinates span{
+    font-size: 20px;
+}
